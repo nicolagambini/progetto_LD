@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ product.title }}</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} {{ product.title }} {% endblock %}
+
+{% block content %}
     <h1>{{ product.title }}</h1>
     <h3>Categoria: {{ product.category }}</h3>
     {# Attenzione: per arrivare alla cartella base "/media/", bisogna         #}
@@ -13,5 +11,4 @@
     <p>Prezzo: {{ product.price }}</p>
     <p>{{ product.description }}</p>
     <p style="font-style: italic">Caricato il: {{ product.pub_date }}</p>
-</body>
-</html>
+{% endblock %}

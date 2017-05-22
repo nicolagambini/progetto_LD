@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.http import HttpResponse, Http404
-from django.template import loader
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
+from django.views import generic
 
 from .models import Product
 
@@ -12,13 +13,6 @@ from .models import Product
 def index(request):
     return HttpResponse("Main page of product. Nothing to show here")
 
-def product(request, product_id):
-    try:
-        obj = Product.objects.get(pk=product_id)
-    except Product.DoesNotExist:
-        raise Http404
-    template = loader.get_template('product/product.html')
-    context = {
-        'product': obj,
-    }
-    return HttpResponse(template.render(context, request))
+class ProductView(generic.DetailView):
+    model = Product
+    template_name = 'product/product.html'
