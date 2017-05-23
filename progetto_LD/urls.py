@@ -15,13 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+
 from django.conf import settings
 from django.conf.urls.static import static
+
+from . import views
 
 urlpatterns = [
     url(r'^product/', include('product.urls')),
     url(r'^seller/', include('seller.urls')),
+    url(r'^login/', include('login.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
 ]
 
 if settings.DEBUG:
