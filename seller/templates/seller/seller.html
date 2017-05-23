@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ seller.name }}</title>
+</head>
+<body>
+    <h1>{{ seller.name }}</h1>
+    <img src="{{ seller.image.url }}" width="300">
+    <p>info: {{ seller.address }} </p>
+    <p>iva: {{ seller.iva  }} </p>
+    <p>iscritto dal: {{ seller.sub_date }}</p>
+
+    <div id="ratings">
+        {% for feedback in seller.feedback_set.all %}
+            <h1>feedback.title</h1>
+            <p>feedback.description</p>
+            <p>feedback.rating</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
