@@ -41,6 +41,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'signup.apps.SignupConfig',
+    'login.apps.LoginConfig',
     'seller.apps.SellerConfig',
     'product.apps.ProductConfig',
     'django.contrib.admin',
@@ -129,6 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'signup.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
