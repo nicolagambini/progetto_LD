@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+import sys, os
+
+from ._tmp.local_dbsettings import LOCAL_DB
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -84,11 +86,7 @@ WSGI_APPLICATION = 'progetto_LD.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-LOCAL_DB = {
-    'active' : True,
-    'db_name' : 'nicolagambini',
-    'db_user' : 'nicolagambini'
-}
+
 if LOCAL_DB['active']:
     DATABASES = {
         'default': {
