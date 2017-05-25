@@ -8,7 +8,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Feedback(models.Model):
     #author = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    seller = models.ForeignKey(Seller, on_delete=models.CASCADE)
+    #seller = models.ForeignKey(Seller, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=1000)
     rating = models.IntegerField(
